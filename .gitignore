@@ -1,0 +1,23 @@
+# ignore misc BYOND files
+*.int
+*.rsc
+*.dmb
+*.lk
+cfg/
+
+# sometimes something create backups of maps
+maps/*/backup/*.dmm
+
+# vscode
+.vscode/
+.history/
+
+# session
+Session.vim
+
+# python
+*.pyc
+__pycache__
+
+# linux
+.nohup
