@@ -1,5 +1,6 @@
-/client/verb/export_field()
-	simulation = 0
+//TODO
+// /client/verb/export_field()
+// 	set_sim(0)
 
 /proc/set_sim(value)
 	simulation = value

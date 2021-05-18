@@ -23,6 +23,9 @@
 	return state.name == value
 
 /obj/lifecell/process()
+	. = ..()
+	state?.onCellProcess(src)
+/*Moved to processing by state
 	if(!IsState(WALL))
 		var/count = 0
 		for(var/obj/lifecell/c in orange(1, src))
@@ -32,7 +35,7 @@
 			StateChange(ALIVE)
 		else if(count < 2 || count > 3)
 			StateChange(DEAD)
-
+*/
 /obj/lifecell/proc/update_icon()
 	state.ApplyTo(src)
 
