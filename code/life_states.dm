@@ -1,15 +1,17 @@
 #define ICON_PACKET(file, state) list("icon" = file, "state" = state)
+#define PREFAB_FOR_DICTIONARY(type, _name, variables) _name = new type{name = _name; variables}
 
 var/static/list/LifeStates = list(
-	new/datum/life_state{name = WALL; icon = ICON_PACKET('icons/life.dmi', "wall"); color = "#000000";},
-	new/datum/life_state{name = ALIVE; icon = ICON_PACKET('icons/life.dmi', null); color = "#66ff66";},
-	new/datum/life_state,
+	PREFAB_FOR_DICTIONARY(/datum/life_state, WALL, icon = ICON_PACKET('icons/life.dmi', "wall"); color = "#000000";),
+	PREFAB_FOR_DICTIONARY(/datum/life_state, ALIVE, icon = ICON_PACKET('icons/life.dmi', null); color = "#66ff66";),
+	PREFAB_FOR_DICTIONARY(/datum/life_state, DEAD, icon = ICON_PACKET('icons/life.dmi', null); color = "#777777";),
 )
 
 /proc/GetLifeStateByName(_name)
-	for(var/datum/life_state/state in LifeStates)
-		if(state.name == _name)
-			return state
+	. = LifeStates[_name]
+	// for(var/datum/life_state/state in LifeStates)
+	// 	if(state.name == _name)
+	// 		return state
 
 /datum/life_state
 	var/name = DEAD

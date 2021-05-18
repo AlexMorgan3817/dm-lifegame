@@ -23,7 +23,7 @@
 	return state.name == value
 
 /obj/lifecell/process()
-	if(state != WALL)
+	if(!IsState(WALL))
 		var/count = 0
 		for(var/obj/lifecell/c in orange(1, src))
 			if(c.IsState(ALIVE))
