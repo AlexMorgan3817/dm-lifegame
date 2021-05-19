@@ -1,14 +1,23 @@
+var/global/list/cells = list()
+
 
 /obj/lifecell/wall/state = -1
 /obj/lifecell
-	var/datum/life_state/state = new
+	var/datum/life_state/state = null
 	icon = 'icons/life.dmi'
+	var/datum/life_state/nextstate = null
 
-/obj/lifecell/New()
-	. = ..()
+
+/obj/lifecell/proc/ReInitializeCell()
+	nextstate = null
 	if(state != WALL)
 		StateChange(pick(DEAD, ALIVE))
 	update_icon()
+
+/obj/lifecell/New()
+	. = ..()
+	cells.Add(src)
+	ReInitializeCell()
 
 /obj/lifecell/proc/StateChange(newState)
 	if(state == newState)
@@ -24,7 +33,15 @@
 
 /obj/lifecell/process()
 	. = ..()
-	state?.onCellProcess(src)
+	var/datum/life_state/_process_result = state?.onCellProcess(src)
+	if(istype(_process_result))
+		nextstate = _process_result
+
+/obj/lifecell/proc/ApplyNextState()
+	if(istype(nextstate))
+		. = StateChange(nextstate)
+		nextstate = null
+
 /*Moved to processing by state
 	if(!IsState(WALL))
 		var/count = 0
@@ -38,4 +55,3 @@
 */
 /obj/lifecell/proc/update_icon()
 	state.ApplyTo(src)
-
