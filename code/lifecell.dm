@@ -1,6 +1,4 @@
 var/global/list/cells = list()
-
-
 /obj/lifecell/wall/state = -1
 /obj/lifecell
 	var/datum/life_state/state = null
@@ -14,9 +12,9 @@ var/global/list/cells = list()
 		StateChange(pick(DEAD, ALIVE))
 	update_icon()
 
-/obj/lifecell/New()
+/obj/lifecell/Initialize()
 	. = ..()
-	cells.Add(src)
+	cells += src
 	ReInitializeCell()
 
 /obj/lifecell/proc/StateChange(newState)

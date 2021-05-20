@@ -9,6 +9,7 @@
 	maxz = 1
 
 	turf = /turf/simulator
+
 /atom/movable/step_size = 32
 /mob/New()
 	. = ..()
@@ -21,5 +22,3 @@
 	To start/stop simulation, use verb 'Continue' and 'Stop' in 'SIMULATION' tab.\n\
 	To change speed of simulation use verb 'Set Delay' in 'SIMULATION' tab.\n\
 	To reset field, use 'Reset' verb in 'Simulation' tab."
-
-

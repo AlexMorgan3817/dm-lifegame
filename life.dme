@@ -16,11 +16,13 @@
 
 // BEGIN_INCLUDE
 #include "code\_defines.dm"
+#include "code\initialization.dm"
 #include "code\life_states.dm"
 #include "code\lifecell.dm"
 #include "code\proccessing.dm"
 #include "code\turf.dm"
 #include "code\verbs.dm"
 #include "code\world.dm"
+#include "code\conways\states.dm"
 // END_INCLUDE
 
