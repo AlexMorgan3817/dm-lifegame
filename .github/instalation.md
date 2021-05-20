@@ -2,7 +2,7 @@
 
 The simplest way to obtain the code is using Github's .zip feature.
 
-Click [here](../../releases/latest) to get the latest code as a .zip file, then unzip it to wherever you want.
+Click [here](https://github.com/AlexMorgan3817/dm-lifegame/releases/latest) to get the latest code as a .zip file, then unzip it to wherever you want.
 
 Git Command:
 
@@ -22,5 +22,5 @@ This'll take a little while, and if everything's done right you'll get a message
     life.dmb - 0 errors, 0 warnings
 
 If you see any errors or warnings, something has gone wrong - possibly a corrupt download or the files extracted wrong, or a code issue on the main repo.
-Head to [issues](../../issues).
+Head to [issues](https://github.com/AlexMorgan3817/dm-lifegame/issues).
 
